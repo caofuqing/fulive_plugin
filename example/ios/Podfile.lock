@@ -1,0 +1,37 @@
+PODS:
+  - Flutter (1.0.0)
+  - fulive_plugin (0.0.1):
+    - Flutter
+    - FURenderKit
+    - MJExtension (= 3.0.15.1)
+    - SVProgressHUD
+  - FURenderKit (8.0.1)
+  - MJExtension (3.0.15.1)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - fulive_plugin (from `.symlinks/plugins/fulive_plugin/ios`)
+
+SPEC REPOS:
+  trunk:
+    - FURenderKit
+    - MJExtension
+    - SVProgressHUD
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  fulive_plugin:
+    :path: ".symlinks/plugins/fulive_plugin/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  fulive_plugin: a28b0f5b25636735358fa034a208f82011ca569c
+  FURenderKit: d6c4ab0a42c92e88eac2e248b4d88c882d9dae31
+  MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+
+COCOAPODS: 1.11.2
