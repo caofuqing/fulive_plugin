@@ -244,7 +244,14 @@ static NSTimeInterval startTime = 0;
 }
 
 -(void)takePhotoToSave:(UIImage *)image {
-    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+//    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+    //----start
+    NSString *path_document = NSHomeDirectory();
+    NSString *imagePath = [path_document stringByAppendingString:@"/Documents/pic.png"];
+    [UIImagePNGRepresentation(image) writeToFile:imagePath atomically:YES];
+    NSLog(@"sava image path : %@",imagePath);
+    [self.eventChannel sendMessageEventChannel: imagePath];
+    //---end
 }
 
 - (void)startRecord {
