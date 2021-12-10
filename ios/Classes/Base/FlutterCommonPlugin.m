@@ -244,7 +244,7 @@ static NSTimeInterval startTime = 0;
 }
 
 - (void)settingZoomValue {
-    [[FURenderKit shareRenderKit].captureCamera setZoomValue:3.0];//caofuqing ---默认新增摄像机和人的距离 拍摄可显示出来全部
+    [[FURenderKit shareRenderKit].captureCamera setZoomValue:0.5];//caofuqing ---默认新增摄像机和人的距离 拍摄可显示出来全部
 }
 
 -(void)takePhotoToSave:(UIImage *)image {
