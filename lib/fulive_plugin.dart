@@ -58,10 +58,11 @@ class FulivePlugin {
     });
   }
 
-  ///native 设置zoom
-  static Future settingZoomValue() async {
+  ///native 设置zoom 范围0到1
+  static Future settingZoomValue(double value) async {
     channel.invokeMethod(common, {
       "method": "settingZoomValue",
+      "value": value,
     });
   }
 

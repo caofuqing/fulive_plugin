@@ -243,8 +243,14 @@ static NSTimeInterval startTime = 0;
     }];
 }
 
-- (void)settingZoomValue {
-    [[FURenderKit shareRenderKit].captureCamera setZoomValue:0.5];//caofuqing ---默认新增摄像机和人的距离 拍摄可显示出来全部
+- (void)settingZoomValue:(NSDictionary *)params {
+    FlutterCommonModel *model = [FlutterCommonModel analysis: params];
+    if ([model.value isKindOfClass:[NSNumber class]]) {
+        double value = [model.value doubleValue];
+        [[FURenderKit shareRenderKit].captureCamera setZoomValue:value];//caofuqing ---默认新增摄像机和人的距离 拍摄可显示出来全部0 到 1 范围
+    } else {
+        NSLog(@"ZoomValue调节参数类型错误: %@",params);
+    }
 }
 
 -(void)takePhotoToSave:(UIImage *)image {
