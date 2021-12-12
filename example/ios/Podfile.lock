@@ -1,6 +1,6 @@
 PODS:
   - Flutter (1.0.0)
-  - fulive_plugin (0.0.1):
+  - fulive_plugin (0.0.6):
     - Flutter
     - FURenderKit (= 7.4.1)
     - MJExtension (= 3.0.15.1)
@@ -27,7 +27,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
-  fulive_plugin: d569e44f1862febbc414b52b36aaf08880d4938c
+  fulive_plugin: db306fa0031a3e4dfac95f3e929d1d3c2d4a58aa
   FURenderKit: f561e8ffb6f90519b64417450385b30004aa2430
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6

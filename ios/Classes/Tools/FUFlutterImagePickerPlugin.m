@@ -127,7 +127,14 @@
             [[NSUserDefaults standardUserDefaults] synchronize];
             //通知Flutter 创建新的页面
             if (self.methodChannel) {
-                [self.methodChannel invokeMethod:@"customSelectedImage" arguments:@{@"type": @0}];
+                //----start
+                NSString *path_document = NSHomeDirectory();
+                NSString *imagePath = [path_document stringByAppendingString:@"/Documents/pic.png"];
+                [UIImagePNGRepresentation(image) writeToFile:imagePath atomically:YES];
+                NSLog(@"sava image path : %@",imagePath);
+                [self.methodChannel invokeMethod:@"customSelectedImage" arguments:@{@"type": @0, @"imagePath":imagePath}];
+                //---end
+//                [self.methodChannel invokeMethod:@"customSelectedImage" arguments:@{@"type": @0}];
             } else {
                 NSLog(@"无methodChannel通道");
             }
