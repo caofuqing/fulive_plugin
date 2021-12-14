@@ -10,6 +10,7 @@
 #import "UIImage+FU.h"
 #import "FUFlutterPluginModelProtocol.h"
 #import <Flutter/Flutter.h>
+#import "CFQTools.h"
 
 //后续扩展用,目前没有特有属性
 @interface FlutterImagePickModel : NSObject <FUFlutterPluginModelProtocol>
@@ -129,7 +130,7 @@
             if (self.methodChannel) {
                 //----start
                 NSString *path_document = NSHomeDirectory();
-                NSString *imagePath = [path_document stringByAppendingString:@"/Documents/pic.png"];
+                NSString *imagePath = [path_document stringByAppendingString:[NSString stringWithFormat:@"/Documents/%@_pic.png",[CFQTools currentTimeStr]]];
                 [UIImagePNGRepresentation(image) writeToFile:imagePath atomically:YES];
                 NSLog(@"sava image path : %@",imagePath);
                 [self.methodChannel invokeMethod:@"customSelectedImage" arguments:@{@"type": @0, @"imagePath":imagePath}];

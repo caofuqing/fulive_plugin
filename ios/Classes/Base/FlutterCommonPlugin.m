@@ -13,6 +13,7 @@
 #import "NSObject+economizer.h"
 #import "SVProgressHUD.h"
 #import "FlutterBaseModel.h"
+#import "CFQTools.h"
 @interface FlutterCommonModel : FlutterBaseModel <FUFlutterPluginModelProtocol>
 
 @end
@@ -257,7 +258,7 @@ static NSTimeInterval startTime = 0;
 //    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
     //----start
     NSString *path_document = NSHomeDirectory();
-    NSString *imagePath = [path_document stringByAppendingString:@"/Documents/pic.png"];
+    NSString *imagePath = [path_document stringByAppendingString:[NSString stringWithFormat:@"/Documents/%@_pic.png",[CFQTools currentTimeStr]]];
     [UIImagePNGRepresentation(image) writeToFile:imagePath atomically:YES];
     NSLog(@"sava image path : %@",imagePath);
     [self.eventChannel sendMessageEventChannel: imagePath];
