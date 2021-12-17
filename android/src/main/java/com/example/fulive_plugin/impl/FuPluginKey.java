@@ -1,6 +1,6 @@
 package com.example.fulive_plugin.impl;
 
-import com.example.fulive_plugin.FULivePlugin;
+import com.example.fulive_plugin.FulivePlugin;
 import com.example.fulive_plugin.entity.FuEvent;
 import com.example.fulive_plugin.view.VideoGlView;
 import com.faceunity.core.camera.FUCamera;
@@ -22,7 +22,7 @@ import io.flutter.plugin.common.MethodChannel;
 public enum FuPluginKey {
     chooseImageOrVideo {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             Map arguments = (Map) call.arguments;
             int value = (int) arguments.get("value");
             plugin.mGLDisplayViewFactory.getView().onFlutterViewDetached();
@@ -38,37 +38,37 @@ public enum FuPluginKey {
     },
     manualExpose {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
 
         }
     },
     takePhoto {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             plugin.getGlView().takePic();
         }
     },
     startRecord {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             plugin.getGlView().startRecord();
         }
     },
     stopRecord {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             plugin.getGlView().stopRecord();
         }
     },
     disposeCommon {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             FURenderKit.getInstance().release();
         }
     },
     startBeautyStreamListen {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             plugin.setInfoCallback((width, height, fps, renderTime, hasFace) -> {
                 String debug = "Resolution:\n\t" + width + "X" + height + "\nFPS: " + (int)fps + "\nRender time:\n\t" + (int)renderTime + "ms";
                 try {
@@ -84,13 +84,13 @@ public enum FuPluginKey {
     },
     customImageDispose {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
 
         }
     },
     renderOrigin {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             Map arguments = (Map) call.arguments;
             boolean enable = (boolean) arguments.get("value");
             plugin.getGlView().rendererSwitch(!enable);
@@ -98,13 +98,13 @@ public enum FuPluginKey {
     },
     selectedImageOrVideo {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
 
         }
     },
     customRenderOrigin {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             Map arguments = (Map) call.arguments;
             boolean enable = (boolean) arguments.get("value");
             plugin.getGlView().rendererSwitch(!enable);
@@ -112,13 +112,13 @@ public enum FuPluginKey {
     },
     customRenderConfig {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
 
         }
     },
     startCustomRenderStremListen {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             plugin.setInfoCallback((width, height, fps, renderTime, hasFace) -> {
                 if (null != plugin.mEventSink) {
                     plugin.mEventSink.success(hasFace ? "1" : "0");
@@ -128,7 +128,7 @@ public enum FuPluginKey {
     },
     adjustSpotlight {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             Map arguments = (Map) call.arguments;
             double value = (double) arguments.get("value");
             float convert = ((float) value + 2) / 4;
@@ -138,7 +138,7 @@ public enum FuPluginKey {
     },
     chooseSessionPreset {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             Map arguments = (Map) call.arguments;
             int value = (int) arguments.get("value");
             switch (value) {
@@ -157,25 +157,25 @@ public enum FuPluginKey {
     },
     changeCameraFront {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             FUCamera.getInstance().switchCamera();
         }
     },
     changeCameraFormat {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
 
         }
     },
     requestVideoProcess {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
 
         }
     },
     customVideoRePlay {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             if (plugin.getGlView() instanceof VideoGlView) {
                 ((VideoGlView) plugin.getGlView()).replay();
             }
@@ -183,7 +183,7 @@ public enum FuPluginKey {
     },
     downLoadCustomRender {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             Map arguments = (Map) call.arguments;
             int value = (int) arguments.get("value");
             switch (value) {
@@ -195,6 +195,6 @@ public enum FuPluginKey {
         }
     };
 
-    public abstract void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result);
+    public abstract void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result);
 
 }

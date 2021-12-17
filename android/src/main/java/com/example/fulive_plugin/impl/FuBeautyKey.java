@@ -1,7 +1,7 @@
 package com.example.fulive_plugin.impl;
 
 import com.example.fulive_plugin.FUCommon.DemoConfig;
-import com.example.fulive_plugin.FULivePlugin;
+import com.example.fulive_plugin.FulivePlugin;
 import com.example.fulive_plugin.entity.FaceBeautyDataFactory;
 import com.example.fulive_plugin.view.BaseGLView;
 import com.faceunity.core.enumeration.FUAITypeEnum;
@@ -21,7 +21,7 @@ import io.flutter.plugin.common.MethodChannel;
 public enum FuBeautyKey {
     setFUBeautyParams {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             try {
                 Map arguments = (Map) call.arguments;
                 int type = (int) arguments.get("bizType");
@@ -48,13 +48,13 @@ public enum FuBeautyKey {
     },
     disposeFUBeauty {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             FURenderKit.getInstance().setFaceBeauty(null);
         }
     },
     setFilterParams {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             FaceBeauty faceBeauty = FaceBeautyDataFactory.getFaceBeauty();
             try {
                 Map arguments = (Map) call.arguments;
@@ -69,7 +69,7 @@ public enum FuBeautyKey {
     },
     configBeauty {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             BaseGLView.runOnGLThread(() -> {
                 FUAIKit.getInstance().loadAIProcessor(DemoConfig.BUNDLE_AI_FACE, FUAITypeEnum.FUAITYPE_FACEPROCESSOR);
                 FURenderKit.getInstance().setFaceBeauty(FaceBeautyDataFactory.getFaceBeauty());
@@ -78,13 +78,13 @@ public enum FuBeautyKey {
     },
     beautyClean {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             FURenderKit.getInstance().setFaceBeauty(null);
         }
     },
     resetDefault {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             FaceBeauty faceBeauty = FaceBeautyDataFactory.getFaceBeauty();
             try {
                 Map arguments = (Map) call.arguments;
@@ -107,15 +107,15 @@ public enum FuBeautyKey {
     },
     FlutterWillDisappear {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
             plugin.getGlView().onPause();
-            plugin.setState(FULivePlugin.STATE_CUSTOM);
+            plugin.setState(FulivePlugin.STATE_CUSTOM);
         }
     },
     FlutterWillAppear {
         @Override
-        public void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result) {
-            plugin.setState(FULivePlugin.STATE_DISPLAY);
+        public void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result) {
+            plugin.setState(FulivePlugin.STATE_DISPLAY);
             plugin.getGlView().onResume();
             BaseGLView.runOnGLThread(() -> {
                 FUAIKit.getInstance().loadAIProcessor(DemoConfig.BUNDLE_AI_FACE, FUAITypeEnum.FUAITYPE_FACEPROCESSOR);
@@ -124,6 +124,6 @@ public enum FuBeautyKey {
         }
     };
 
-    public abstract void handle(FULivePlugin plugin, MethodCall call, MethodChannel.Result result);
+    public abstract void handle(FulivePlugin plugin, MethodCall call, MethodChannel.Result result);
 
 }
