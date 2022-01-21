@@ -59,6 +59,12 @@
 //从上个页面回退到当前页面，类比viewWillAppear,不完全一样，初始化widget不走这个方法
 - (void)FlutterWillAppear {
     [[FURenderKit shareRenderKit] startInternalCamera];
+    
+    //ceshi
+    //caofuqing---------add 移除录音的监听
+    [[FURenderKit shareRenderKit].captureCamera removeAudio];
+    //ceshi
+    
     [self.baseManager loadItem];
     [FURenderKit shareRenderKit].glDisplayView = _curRenderView;
     [FURenderKit shareRenderKit].pause = NO;
