@@ -18,7 +18,7 @@ A new Flutter project.
   s.dependency 'Flutter'
   s.dependency 'FURenderKit', '7.4.1'
   s.dependency 'SVProgressHUD'
-  s.dependency 'MJExtension', '3.0.15.1'
+  s.dependency 'MJExtension'
   s.static_framework = true
   s.resource_bundles = {
   'fulive_plugin' => ['Assets/*.json','**/*.{png,bundle,json}']
